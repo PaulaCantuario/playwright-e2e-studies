@@ -3,7 +3,7 @@ import { aguardaPostRegistrar, validaPostRegistrar } from '../support/api/regist
 import { fakeUser } from '../support/utils/faker'
 
 test.describe('Registrar', () => {
-  test('success', async ({ registrarPage }) => {
+  test('success', async ({ page, registrarPage }) => {
     const usuario = {
       name: fakeUser.name,
       email: fakeUser.email,
@@ -11,6 +11,7 @@ test.describe('Registrar', () => {
     }
     await registrarPage.register(usuario.name, usuario.email, usuario.password)
     await expect(registrarPage.toast).toContainText('Usuário adicionado com sucesso')
+    await expect(page).toHaveURL('login')
   })
 
   test('denied - 500', async ({ registrarPage }) => {

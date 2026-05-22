@@ -1,4 +1,4 @@
-import { test, expect } from '../support/fixtures/registrar.fixture'
+import { test, expect } from '../support/fixtures/fixture'
 import { aguardaPostRegistrar, validaPostRegistrar } from '../support/api/registrar.api'
 import { fakeUser } from '../support/utils/faker'
 

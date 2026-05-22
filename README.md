@@ -49,7 +49,7 @@ npx playwright test tests/nome-do-arquivo.spec.ts
 | `support/pages/` | Page Objects - encapsulam interações e seletores por página |
 | `support/api/` | Chamadas de API e assertions de contrato/resposta |
 | `support/utils/faker.ts` | Data Builders com Faker - geração de massa de dados dinâmica |
-| `support/fixtures/` | Ponto único de exportação das pages, facilitando import nos testes |
+| `support/fixtures/` | Ponto único de exportação das pages, facilitando import nos testes. Atualmente estou usando apenas um arquivo. Caso o projeto cresça, será necessário separar os arquivos de fixtures, mas isso requer mais conhecimento em typescript e menos funções nativas do PW |
 
 ---
 

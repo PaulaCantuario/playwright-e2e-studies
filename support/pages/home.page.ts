@@ -4,18 +4,29 @@ export class HomePage {
     readonly tableSaldoSummary: Locator
     readonly tableHeaderConta: Locator
     readonly tableHeaderSaldo: Locator
-    readonly tableAccountName: Locator
-    readonly tableAccountValue: Locator
-    readonly tableRowTotal: Locator
-    readonly tableRowTotalValue: Locator
+    readonly tableRows: Locator
 
     constructor(private page: Page) {
         this.tableSaldoSummary = page.getByRole('table')
         this.tableHeaderConta = page.getByRole('columnheader', { name: 'Conta' })
         this.tableHeaderSaldo = page.getByRole('columnheader', { name: 'Saldo' })
-        this.tableAccountName = page.getByRole('cell', { name: 'Conta' })
-        this.tableAccountValue = page.getByRole('cell', { name: 'Valor' })
-        this.tableRowTotal = page.getByRole('cell', { name: 'Total' })
-        this.tableRowTotalValue = page.getByRole('cell', { name: 'R$ 1.000,00' })
+        this.tableRows = page.locator('table.table.table-hover.table-bordered tbody tr')
+    }
+
+    getAccountName(index: number) {
+        return this.tableRows.nth(index).locator('td:nth-child(1)')
+    }
+
+    getAccountValue(index: number) {
+        return this.tableRows.nth(index).locator('td:nth-child(2)')
+    }
+
+    getValueByLabel(label: string) {
+        return this.page
+            .locator('tbody tr')
+            .filter({
+                hasText: label
+            })
+            .locator('td:nth-child(2)')
     }
 }

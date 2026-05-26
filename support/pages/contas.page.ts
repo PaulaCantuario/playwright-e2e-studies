@@ -16,6 +16,11 @@ export class ContasPage {
     }
 
     getAccountRow(nomeDaConta: string) {
-        return this.tableRows.filter({hasText: nomeDaConta})
+        return this.tableRows.filter({ hasText: nomeDaConta })
+    }
+
+    async criaConta(nomeDaConta: string) {
+        await this.nomeDaContaInput.fill(nomeDaConta)
+        await this.saveButton.click()
     }
 }

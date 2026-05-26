@@ -25,8 +25,7 @@ test.describe('Contas', () => {
 
         await loginPage.login('aa', 'aa')
         await taskBarPage.acessaMenuContas()
-        await contasPage.nomeDaContaInput.fill(nomeDaConta)
-        await contasPage.saveButton.click()
+        await contasPage.criaConta(nomeDaConta)
         await expect(contasPage.toastMessageError).toBeVisible()
         await expect(contasPage.getAccountRow(nomeDaConta)).toHaveCount(1)
     })
@@ -39,8 +38,7 @@ test.describe('Contas', () => {
 
         await loginPage.login('aa', 'aa')
         await taskBarPage.acessaMenuContas()
-        await contasPage.nomeDaContaInput.fill(contaBody.nome)
-        await contasPage.saveButton.click()
+        await contasPage.criaConta(contaBody.nome)
         await expect(contasPage.toastMessageError).toBeVisible()
         await expect(contasPage.getAccountRow(contaBody.nome)).toHaveCount(1)
         //TearDown

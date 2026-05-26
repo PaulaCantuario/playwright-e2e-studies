@@ -8,6 +8,7 @@ import { test as base, expect } from '@playwright/test'
 import { LoginPage } from '../pages/login.page'
 import { HomePage } from '../pages/home.page'
 import { RegistrarPage } from '../pages/registrar.page'
+import { TaskBarPage } from '../pages/taskBar.page'
 
 
 // Define a tipagem das fixtures customizadas
@@ -22,6 +23,9 @@ type Pages = {
 
     // Disponível como: async ({ registrarPage })
     registrarPage: RegistrarPage
+
+    // Disponível como: async ({ taskBarPage })
+    taskBarPage: TaskBarPage
 }
 
 // Cria um test customizado
@@ -63,6 +67,12 @@ export const test = base.extend<Pages>({
         const registrarPage = new RegistrarPage(page)
         await registrarPage.visitRegistrarPage()
         await use(registrarPage)
+    },
+
+    // Cria automaticamente uma instância da TaskBarPage antes do teste
+    taskBarPage: async ({ page }, use) => {
+        const taskBarPage = new TaskBarPage(page)
+        await use(taskBarPage)
     }
 })
 

@@ -31,7 +31,7 @@ test.describe('Contas', () => {
         await expect(contasPage.getAccountRow(nomeDaConta)).toHaveCount(1)
     })
 
-    test.only('should not be able to create an duplicate account - using API to create data before manual input', async ({ loginPage, taskBarPage, contasPage, page, request }) => {
+    test('should not be able to create an duplicate account - using API to create data before manual input', async ({ loginPage, taskBarPage, contasPage, page, request }) => {
         
         const contaBody = { nome: `Conta de Teste ${faker.lorem.words(3)}` }
         //Aqui eu não vou precisar monitorar a resposta da requisição enviada pelo front, porque eu já vou criar a conta diretamente pela API, então já posso armazenar o id diretamente na variável para usar no TearDown

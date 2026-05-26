@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login.page'
 import { HomePage } from '../pages/home.page'
 import { RegistrarPage } from '../pages/registrar.page'
 import { TaskBarPage } from '../pages/taskBar.page'
+import { ContasPage } from '../pages/contas.page'
 
 
 // Define a tipagem das fixtures customizadas
@@ -26,6 +27,9 @@ type Pages = {
 
     // Disponível como: async ({ taskBarPage })
     taskBarPage: TaskBarPage
+
+    // Disponível como: async ({ contasPage })
+    contasPage: ContasPage
 }
 
 // Cria um test customizado
@@ -73,6 +77,12 @@ export const test = base.extend<Pages>({
     taskBarPage: async ({ page }, use) => {
         const taskBarPage = new TaskBarPage(page)
         await use(taskBarPage)
+    },
+
+     // Cria automaticamente uma instância da ContasPage antes do teste
+    contasPage: async ({ page }, use) => {
+        const contasPage = new ContasPage(page)
+        await use(contasPage)
     }
 })
 

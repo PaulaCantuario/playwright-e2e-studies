@@ -15,7 +15,7 @@ test.describe('Home', () => {
         await expect(homePage.tableHeaderSaldo).toHaveText('Saldo')
     })
 
-    test.only('account names and values in each row has the same value returned by the API', async ({ page, loginPage, homePage }) => {
+    test('account names and values in each row has the same value returned by the API', async ({ page, loginPage, homePage }) => {
 
         const responsePromise = aguardaGetSaldo(page)
         await loginPage.login('paula@pw.com', 'senha123')

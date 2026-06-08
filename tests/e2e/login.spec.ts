@@ -1,5 +1,5 @@
-import { aguardaPostLogin, validaPostLogin } from '../support/api/login.api'
-import { test, expect } from '../support/fixtures/fixture'
+import { aguardaPostLogin, validaPostLogin } from '../../support/api/login.api'
+import { test, expect } from '../../support/fixtures/fixture'
 
 test.describe('Login', () => {
 

@@ -1,6 +1,6 @@
-import { test, expect } from '../support/fixtures/fixture'
-import { aguardaGetSaldo, listaGetSaldo } from '../support/api/saldo.api'
-import { formatCurrency } from '../support/utils/formatters'
+import { test, expect } from '../../support/fixtures/fixture'
+import { aguardaGetSaldo, listaGetSaldo } from '../../support/api/saldo.api'
+import { formatCurrency } from '../../support/utils/formatters'
 
 test.describe('Home', () => {
     test('account table summary exists', async ({ loginPage, homePage }) => {

@@ -1,5 +1,5 @@
-import { test, expect } from '../support/fixtures/fixture'
-import { aguardaPostConta, criaPostConta, deleteConta } from '../support/api/contas.api'
+import { test, expect } from '../../support/fixtures/fixture'
+import { aguardaPostConta, postConta, deleteConta } from '../../support/api/contas.api'
 import { faker } from '@faker-js/faker'
 
 test.describe('Contas', () => {
@@ -34,7 +34,7 @@ test.describe('Contas', () => {
         
         const contaBody = { nome: `Conta de Teste ${faker.lorem.words(3)}` }
         //Aqui eu não vou precisar monitorar a resposta da requisição enviada pelo front, porque eu já vou criar a conta diretamente pela API, então já posso armazenar o id diretamente na variável para usar no TearDown
-        const idConta = await criaPostConta(request, contaBody, 201)
+        const idConta = await postConta(request, contaBody, 201)
 
         await loginPage.login('aa', 'aa')
         await taskBarPage.acessaMenuContas()

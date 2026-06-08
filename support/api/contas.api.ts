@@ -13,16 +13,6 @@ export function aguardaGetConta(page: Page) {
     )
 }
 
-// Valida response e retorna o body para validação no teste
-export async function listaGetConta(
-    response: Response,
-    expectedStatusCode: number
-) {
-    expect(response.status()).toBe(expectedStatusCode)
-    const responseBody = await response.json()
-    return responseBody
-}
-
 // Envia requisição para API DELETE e valida o status code
 export async function deleteConta(
     request: APIRequestContext,
@@ -50,7 +40,7 @@ export async function aguardaPostConta(page: Page) {
 }
 
 //Envia uma requisição POST para criar uma conta, valida o status code e retorna o id da conta criada para uso no teste
-export async function criaPostConta(request: APIRequestContext, contaBody: any, codeStatus: number) {
+export async function postConta(request: APIRequestContext, contaBody: any, codeStatus: number) {
     const response = await request.post(`${API_URL}/contas`, {
         headers: {
             Authorization: `${API_TOKEN}`

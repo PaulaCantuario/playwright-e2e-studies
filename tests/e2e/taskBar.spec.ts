@@ -1,4 +1,4 @@
-import { test, expect } from '../support/fixtures/fixture'
+import { test, expect } from '../../support/fixtures/fixture'
 
 test('TaskBar samples', { tag: '@smoke'} , async ({ loginPage, taskBarPage }) => {
     await loginPage.login('aa', 'aa')

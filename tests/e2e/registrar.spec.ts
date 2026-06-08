@@ -1,6 +1,6 @@
-import { test, expect } from '../support/fixtures/fixture'
-import { aguardaPostRegistrar, validaPostRegistrar } from '../support/api/registrar.api'
-import { fakeUser } from '../support/utils/faker'
+import { test, expect } from '../../support/fixtures/fixture'
+import { aguardaPostRegistrar, validaPostRegistrar } from '../../support/api/registrar.api'
+import { fakeUser } from '../../support/utils/faker'
 
 test.describe('Registrar', () => {
   test('success', async ({ page, registrarPage }) => {

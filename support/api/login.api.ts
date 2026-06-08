@@ -1,4 +1,4 @@
-import { Page, expect, Response } from '@playwright/test'
+import { Page, expect, Response, APIRequestContext } from '@playwright/test'
 
 const API_URL = 'https://barrigarest.wcaquino.me'
 
@@ -26,4 +26,12 @@ export async function validaPostLogin(
     
     // Valida se o body contém os campos esperados — toMatchObject permite body parcial
     expect(responseBody).toMatchObject(expectedBody)
+}
+
+// Envia requisição post login diretamente para a API, sem passar pelo front-end, permitindo validar o comportamento da API de forma isolada, sem depender da interface do usuário.
+export async function postLogin(request: APIRequestContext, email: string, senha: string) {
+    const response = await request.post(`${API_URL}/signin`, {
+        data: { email, senha }
+    })
+    return response
 }

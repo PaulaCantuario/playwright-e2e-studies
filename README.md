@@ -45,11 +45,20 @@ npx playwright test tests/nome-do-arquivo.spec.ts
 
 | Pasta | Responsabilidade |
 |---|---|
-| `tests/` | Cenários de teste E2E |
+| `tests/` | Cenários de testes |
 | `support/pages/` | Page Objects - encapsulam interações e seletores por página |
 | `support/api/` | Chamadas de API e assertions de contrato/resposta |
 | `support/utils/faker.ts` | Data Builders com Faker - geração de massa de dados dinâmica |
 | `support/fixtures/` | Ponto único de exportação das pages, facilitando import nos testes. Atualmente estou usando apenas um arquivo. Caso o projeto cresça, será necessário separar os arquivos de fixtures, mas isso requer mais conhecimento em typescript e menos funções nativas do PW |
+
+---
+## 🧪 Estrutura de testes
+
+| Pasta | Responsabilidade |
+|---|---|
+| `api` | Testes focados em validações exclusivas da API|
+| `e2e` | Testes focados em validações de ponta a ponta englobando API e Interface |
+| `ui` | Testes focados em validações exclusivas da Interface |
 
 ---
 
